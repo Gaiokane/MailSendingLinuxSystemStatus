@@ -215,11 +215,11 @@ message['To'] =  _format_addr(u'QAQ <%s>' % receivers)							#收件人昵称
 message['Subject'] = Header(u'服务器 CPU 内存 网络 使用率 ', 'utf-8').encode()	#邮件主题
 
 try:
-	smtpObj = smtplib.SMTP()			#实例化对象
-	smtpObj.connect(mail_host, 587)		#连接SMTP服务器，服务器地址，端口号
-	smtpObj.ehlo()						#向Gamil发送SMTP 'ehlo' 命令
-	smtpObj.starttls()					#与上一条一起发送了gmail才可以用
-	smtpObj.login(mail_user,mail_pass)	#使用用户名密码登录，gmail使用应用专用密码（Google账号->左侧安全性->登录Google中应用专用密码）
+	smtpObj = smtplib.SMTP()								#实例化对象
+	smtpObj.connect(mail_host, 587)							#连接SMTP服务器，服务器地址，端口号
+	smtpObj.ehlo()											#向Gamil发送SMTP 'ehlo' 命令
+	smtpObj.starttls()										#与上一条一起发送了gmail才可以用
+	smtpObj.login(mail_user,mail_pass)						#使用用户名密码登录，gmail使用应用专用密码（Google账号->左侧安全性->登录Google中应用专用密码）
 	smtpObj.sendmail(sender, receivers, message.as_string())#所需信息填入 发送邮件
 	print "邮件发送成功"				#输出成功提示
 
